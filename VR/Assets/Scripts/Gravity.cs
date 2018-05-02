@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour {
 
-	static private float g=9.8f;
+	static private float g=-9.8f;
 	
 	private float mYPos;
 	private Transform mPos;
@@ -15,7 +15,7 @@ public class Gravity : MonoBehaviour {
         //f=mg
         mPos = this.GetComponent<Transform>();
         mYPos = this.GetComponent<Transform>().position.y;
-		print(mYPos);
+		//print(mYPos);
     }
 	
 	// Update is called once per frame
