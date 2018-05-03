@@ -13,8 +13,8 @@ public class Gravity : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //f=mg
-        mPos = this.GetComponent<Transform>();
-        mYPos = this.GetComponent<Transform>().position.y;
+        //mPos = this.GetComponent<Transform>();
+        //mYPos = this.GetComponent<Transform>().position.y;
 		//print(mYPos);
     }
 	

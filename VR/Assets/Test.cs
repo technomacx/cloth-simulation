@@ -10,7 +10,7 @@ public class Test : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		//transform.position=new Vector3(-2,0.5f * -9.8f * Time.timeSinceLevelLoad*Time.timeSinceLevelLoad,0);
 		//print ("Test" + transform.position.y.ToString ());
 		//this.transform.position= new Vector3((-2f*this.transform.position.x),5f,0f);

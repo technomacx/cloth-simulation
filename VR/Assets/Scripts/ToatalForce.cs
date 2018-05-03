@@ -25,26 +25,31 @@ public class ToatalForce : MonoBehaviour
 		p = this.transform.position;
 		p1 = new Vector3 (0, 0, 0);
 	}
+
+    // Update is called once per frame
+
+    void Update()
+    {
+    }
 	
-	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
-		//mGravity = this.GetComponent<Gravity> ().GetForce ();
-		//mSpring = this.GetComponent<Spring> ().GetForce ();
-		mSpring=new Vector3 (-2.5f*this.transform.position.x, 0f, 0f);
+		mGravity = this.GetComponent<Gravity> ().GetForce ();
+		mSpring = this.GetComponent<Spring> ().GetForce ();
+		//mSpring= new Vector3 (-2.5f * this.transform.position.x, 0f, 0f);
 		//print (mSpring.ToString ());
-		mTotalForce = /*mGravity +*/mSpring;	
+		mTotalForce = mGravity + mSpring;
 		//print ("totoal="+mTotalForce.ToString ());
 		ac = mTotalForce / m;
 		v1.x = v.x + ac.x * Time.deltaTime;
-		//v1.y = v.y + ac.y * Time.deltaTime;
-		//v1.z = v.z + ac.z * Time.deltaTime;
+		v1.y = v.y + ac.y * Time.deltaTime;
+		v1.z = v.z + ac.z * Time.deltaTime;
 
 		p1.x = p.x + v1.x * Time.deltaTime;
-		//p1.y = p.y + v1.y * Time.deltaTime;
-		//p1.z = p.z + v1.z * Time.deltaTime;
+		p1.y = p.y + v1.y * Time.deltaTime;
+		p1.z = p.z + v1.z * Time.deltaTime;
 
-		transform.position = p;
+		transform.position = p1;
 		p = p1;
 		v = v1;
 	}
