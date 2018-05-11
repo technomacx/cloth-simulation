@@ -27,6 +27,4 @@ public class Gravity : MonoBehaviour {
 	public Vector3 GetForce(){
 		return new Vector3(0f,mMass * g,0f);
 	} 
-
-
 }
