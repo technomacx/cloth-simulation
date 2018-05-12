@@ -7,18 +7,9 @@ public class ToatalForce : MonoBehaviour
 
 	Vector3 mGravity, mSpring, mTotalForce, ac, v, v1, p1, p;
 	float m ;
-	// Use this for initialization
 	void Start ()
 	{
 		m = gameObject.GetComponent<Gravity>().mMass;
-		//Vector3 dd= new Vector3 (2, 2, 6);
-		//print( dd.ToString());
-		//print( dd.magnitude);
-		//print((dd/dd.magnitude).ToString());
-		//print((dd/dd.magnitude).magnitude);
-
-
-
 		mTotalForce = new Vector3 (0, 0, 0);
 		v = new Vector3 (0, 0, 0);
 		v1 = new Vector3 (0, 0, 0);
@@ -37,10 +28,7 @@ public class ToatalForce : MonoBehaviour
 	{
 		mGravity = this.GetComponent<Gravity> ().GetForce ();
 		mSpring = this.GetComponent<Spring> ().GetForce (v);
-		//mSpring= new Vector3 (-2.5f * this.transform.position.x, 0f, 0f);
-		//print (mSpring.ToString ());
 		mTotalForce = mGravity + mSpring;
-		//print ("totoal="+mTotalForce.ToString ());
 		ac = mTotalForce / m;   // f = m * a
 		v1.x = v.x + ac.x * Time.deltaTime;
 		v1.y = v.y + ac.y * Time.deltaTime;

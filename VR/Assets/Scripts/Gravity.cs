@@ -5,10 +5,7 @@ using UnityEngine;
 public class Gravity : MonoBehaviour {
 
 	static private float g=-9.8f;
-	
-	private float mYPos;
-	private Transform mPos;
-	public float mMass,mForce;
+	public float mMass;
 
 	// Use this for initialization
 	void Start () {
