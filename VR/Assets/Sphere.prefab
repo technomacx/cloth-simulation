@@ -105,6 +105,10 @@ MonoBehaviour:
   mAtom6: {fileID: 0}
   mAtom7: {fileID: 0}
   mAtom8: {fileID: 0}
+  mAtom9: {fileID: 0}
+  mAtom10: {fileID: 0}
+  mAtom11: {fileID: 0}
+  mAtom12: {fileID: 0}
 --- !u!114 &114330119015692880
 MonoBehaviour:
   m_ObjectHideFlags: 1

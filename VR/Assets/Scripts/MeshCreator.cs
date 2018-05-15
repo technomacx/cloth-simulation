@@ -17,7 +17,7 @@ public class MeshCreator : MonoBehaviour
 	private GameObject[,] atomArray;
 	public int length, width;
 	public float xOffset, yOffset;
-	public float Ks, Kd,KsSh;
+	public float Ks, Kd, KsSh;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -61,6 +61,19 @@ public class MeshCreator : MonoBehaviour
 				}
 				if (i > 0 && j < width - 1) {
 					atomArray [j, i].GetComponent<Spring> ().mAtom8 = atomArray [j + 1, i - 1];
+				}
+
+				if (j < width - 2) {
+					atomArray [j, i].GetComponent<Spring> ().mAtom9 = atomArray [j + 2, i];
+				}
+				if (j > 1) {
+					atomArray [j, i].GetComponent<Spring> ().mAtom10 = atomArray [j - 2, i];
+				}
+				if (i < length - 2) {
+					atomArray [j, i].GetComponent<Spring> ().mAtom11 = atomArray [j, i + 2];
+				}
+				if (i > 1) {
+					atomArray [j, i].GetComponent<Spring> ().mAtom12 = atomArray [j, i - 2];
 				}
 			}
 			atomArray [0, 0].GetComponent<Spring> ().mAtom2 = corner1;
