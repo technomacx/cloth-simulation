@@ -42,6 +42,9 @@ public class ToatalForce : MonoBehaviour
 		p = p1;
 		v = v1;
 	}
+	public Vector3 getVelocity(){
+		return v;
+	}
 }
 //float mXPos,mYPos,mZPos;
 //mGravity =new Vector3(0,1,0); //this.GetComponent<Gravity>().GetForce();
