@@ -17,7 +17,7 @@ public class MeshCreator : MonoBehaviour
 	private GameObject[,] atomArray;
 	public int length, width;
 	public float xOffset, yOffset;
-	public float Ks, Kd, KsSh;
+	public float Ks, Kd, KsSh , kbending;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -29,6 +29,7 @@ public class MeshCreator : MonoBehaviour
 		Spring.mKd = Kd;
 		Spring.mKs = Ks;
 		Spring.mKsSh = KsSh;
+		Spring.mKsBn = kbending;
 		atomArray = new GameObject[width, length];
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < width; j++) {

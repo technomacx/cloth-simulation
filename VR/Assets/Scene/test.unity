@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44824785, g: 0.49827385, b: 0.575583, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482476, g: 0.4982736, b: 0.5755824, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73e740c2cfa4a61409884bd7ee56cb6e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -762,10 +762,10 @@ MonoBehaviour:
   corner3: {fileID: 180024460}
   corner4: {fileID: 1526415977}
   sss: {fileID: 0}
-  length: 10
-  width: 10
-  xOffset: 2
-  yOffset: 2
+  length: 50
+  width: 50
+  xOffset: 0.4
+  yOffset: 0.4
   Ks: 0.1
   Kd: 0.02
   KsSh: 0.05
