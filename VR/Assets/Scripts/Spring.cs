@@ -117,7 +117,6 @@ public class Spring : MonoBehaviour
 		}
 		float vl2 = v2.x * CurrentDistance.x + v2.y * CurrentDistance.y + v2.z * CurrentDistance.z;
 		*/
-
 		CurrentDistance *= (-mKs * DeltaX) - (mKd * (vl1));
 		return CurrentDistance;
 	}
