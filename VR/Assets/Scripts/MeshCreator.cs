@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent (typeof(MeshFilter))]
 public class MeshCreator : MonoBehaviour
 {
+	public Button StartResetButton;
+	public InputField ksIn,kdIn,ksShIn,kbIn,widthIn,lengthIn; 
 	Mesh mesh1;
-
 	Vector3[] vertices;
 	int[] triangles;
-
+	private bool KeyLock = false,StartResetButtonState = true;
 	public GameObject mesh, atom;
-	public GameObject corner1, corner2, corner3, corner4;
+	public GameObject corner1, corner2, corner3, corner4,InputGroup;
 	public Texture sss;
 
 	private GameObject[,] atomArray;
@@ -31,12 +33,14 @@ public class MeshCreator : MonoBehaviour
 		Spring.mKsSh = KsSh;
 		Spring.mKsBn = kbending;
 		atomArray = new GameObject[width, length];
+		// init the mesh atoms
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < width; j++) {
 				atomArray [j, i] = Instantiate (atom, new Vector3 (j * xOffset, 3, i * yOffset), Quaternion.identity, mesh.transform);
 			}
 		}
-		for (int i = 0; i < length; i++) {
+        // init each atom friend
+        for (int i = 0; i < length; i++) {
 			for (int j = 0; j < width; j++) {
 				if (j < width - 1) {
 					atomArray [j, i].GetComponent<Spring> ().mAtom1 = atomArray [j + 1, i];
@@ -82,6 +86,7 @@ public class MeshCreator : MonoBehaviour
 			atomArray [width - 1, 0].GetComponent<Spring> ().mAtom1 = corner3;
 			atomArray [width - 1, length - 1].GetComponent<Spring> ().mAtom1 = corner4;
 		}
+
 		vertices = new Vector3[width * length];
 		triangles = new int[(width) * (length - 1) * 6];
 		int q = 0;
@@ -102,15 +107,45 @@ public class MeshCreator : MonoBehaviour
 		gameObject.GetComponent<Renderer> ().material.mainTexture = sss;
 		MakeMeshData ();
 		CreateMesh ();
+        KeyLock = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if(KeyLock == true){
 		MakeMeshData ();
 		CreateMesh ();
+		}
 	}
 
+	public void StartResetButtonFun(){
+		if(StartResetButtonState){
+			Ks = float.Parse(ksIn.text);
+            Kd = float.Parse(kdIn.text);
+            KsSh = float.Parse(ksShIn.text);
+            kbending = float.Parse(kbIn.text);
+            width = int.Parse(widthIn.text);
+            length = int.Parse(lengthIn.text);
+            //InitMesh();
+			DisplayHideUI();
+			StartResetButton.GetComponentInChildren<Text>().text="Rest";
+            StartResetButtonState = !StartResetButtonState;
+		}else{
+			//destroy all atoms function
+            DisplayHideUI();
+            StartResetButton.GetComponentInChildren<Text>().text = "Start";
+            StartResetButtonState = !StartResetButtonState;
+		}
+	}
+
+	void DisplayHideUI(){
+		if(StartResetButtonState){
+			InputGroup.SetActive(!StartResetButtonState);
+		}else{
+            InputGroup.SetActive(!StartResetButtonState);
+        }
+	}
 	void MakeMeshData ()
 	{
 		int q = 0;
