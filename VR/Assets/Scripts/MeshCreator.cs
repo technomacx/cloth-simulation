@@ -81,10 +81,10 @@ public class MeshCreator : MonoBehaviour
 					atomArray [j, i].GetComponent<Spring> ().mAtom12 = atomArray [j, i - 2];
 				}
 			}
-			atomArray [0, 0].GetComponent<Spring> ().mAtom2 = corner1;
-			atomArray [0, length - 1].GetComponent<Spring> ().mAtom2 = corner2;
-			atomArray [width - 1, 0].GetComponent<Spring> ().mAtom1 = corner3;
-			atomArray [width - 1, length - 1].GetComponent<Spring> ().mAtom1 = corner4;
+		//	atomArray [0, 0].GetComponent<Spring> ().mAtom2 = corner1;
+		//	atomArray [0, length - 1].GetComponent<Spring> ().mAtom2 = corner2;
+		//	atomArray [width - 1, 0].GetComponent<Spring> ().mAtom1 = corner3;
+		//	atomArray [width - 1, length - 1].GetComponent<Spring> ().mAtom1 = corner4;
 		}
 
 		vertices = new Vector3[width * length];
