@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MeshCreator : MonoBehaviour
 {
 	public Button StartResetButton;
-	public InputField ksIn,kdIn,ksShIn,kbIn,widthIn,lengthIn; 
+	public InputField ksIn,kdIn,ksShIn,kbIn,widthIn,lengthIn,offSetXIn,offSetYIn; 
 	Mesh mesh1;
 	Vector3[] vertices;
 	int[] triangles;
@@ -26,7 +26,7 @@ public class MeshCreator : MonoBehaviour
 		mesh1 = GetComponent<MeshFilter> ().mesh;
 	}
 
-	void Start ()
+	void Start()
 	{
 		Spring.mKd = Kd;
 		Spring.mKs = Ks;
@@ -127,13 +127,17 @@ public class MeshCreator : MonoBehaviour
             kbending = float.Parse(kbIn.text);
             width = int.Parse(widthIn.text);
             length = int.Parse(lengthIn.text);
-            //InitMesh();
+			xOffset = float.Parse(offSetXIn.text);
+			yOffset = float.Parse(offSetYIn.text);
+         //   InitMesh();
 			DisplayHideUI();
 			StartResetButton.GetComponentInChildren<Text>().text="Rest";
             StartResetButtonState = !StartResetButtonState;
 		}else{
 			//destroy all atoms function
-            DisplayHideUI();
+			GameObject.FindGameObjectsWithTag("Atom");
+			//destroy all
+			DisplayHideUI();
             StartResetButton.GetComponentInChildren<Text>().text = "Start";
             StartResetButtonState = !StartResetButtonState;
 		}

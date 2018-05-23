@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BallCollision
   - CubeCollision
+  - Atom
   layers:
   - Default
   - TransparentFX
